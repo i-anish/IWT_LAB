@@ -1,0 +1,25 @@
+
+h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:rgb(38, 117, 187);
+    background-color: black;
+    text-align:center;
+}
+
+::selection {
+  background: black;
+  color: white;
+}
+
+
+a:hover{
+    font-size: large;
+    font-weight: bold;
+}
+
+a{
+    text-align: center;
+    font-size:medium;
+    text-decoration: none;
+    color: black;
+}
