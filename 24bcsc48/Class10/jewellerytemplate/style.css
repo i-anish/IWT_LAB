@@ -3,20 +3,159 @@ body{
     margin: 0;
     padding: 0;
     background-color: rgb(27, 26, 19);
-    height: 100vh;
+    min-height: 100vh;
 }
 
-nav{
-    display: flex;
-    justify-content: center;
-    margin: 25px;
+header{
+    display:flex;
+    justify-content: space-between;
     align-items: center;
+    padding-top: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: sticky;
+    top: 0;
+    background-color: rgb(27, 26, 19);
+    z-index: 1;
 }
 
 ul{
-    list-style-type: none;
+    list-style: none;
+    color: whitesmoke;
+    font-size: medium;
 }
 
 li{
     display: inline;
+    margin: 15px;
+}
+
+.text{
+    font-size: 20px;
+    color: black;
+    margin-left: 90px;
+    font-size: 25px;
+    letter-spacing: 4px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.buttons{
+    margin-right: 90px;
+}
+.buttons button{
+    padding: 10px;
+    margin-left: 7px;
+    font-size: 15px;
+    cursor: pointer;
+    width: 150px;
+    font-weight: 500;
+}
+.b1{
+    border: 1px solid goldenrod;
+    background-color: rgb(27, 26, 19);
+    color: goldenrod;
+}
+.b2{
+    background-color: goldenrod;
+    color: black;
+    border: none;
+}
+
+.trading{
+    height: 5px;
+    background-color: rgb(44, 43, 43);
+    height: 35px;
+    max-width: 300px;
+    margin-top: 50px;
+    margin-left: 90px;
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+    color: whitesmoke;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 12px;
+    
+}
+
+.main_content{
+    /* position: absolute; */
+    height: 600px;
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+}
+
+div.text{
+    margin-left: 90px;
+    position: relative;
+    width: 55vw;
+    height: 100%;
+    background-color: transparent;
+    color: rgb(116, 114, 114);
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align:left;
+}
+div.text p{
+    letter-spacing: 1px;
+}
+div.prices{
+    margin-right: 90px;
+    position: relative;
+    width: 45vw;
+    height: 100%;
+    background-color:rgb(44, 43, 43);;
+    color: black;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+div.text button{
+    width:250px;
+}
+
+.archievs{
+    width: 100%;
+    background-color: black;
+    height: 160px;
+    display: flex;
+}
+.archievs div{
+    margin-left: 90px;
+    /* width: 33.3%; */
+    color: whitesmoke;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
+}
+.archievs div p{
+    font-size: 15px;
+}
+
+.services{
+    width: 100%;
+    background-color: transparent;
+    height: 500px;
+    display: flex;
+}
+
+.queries{
+    width: 100%;
+    height: 500px;
+    background-color: black;
+    color: whitesmoke;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
+}
+
+.products
+{
+    width: 100%;
+    height: 500px;
+    background-color: transparent;
+    color: rgb(116, 114, 114);
 }
