@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        let arr = new Array(10,56,90,100,45,78,23);
+        let largest=arr[0], sLargest = -1;
+        for(let i=0;i<arr.length;i++){
+            if(arr[i]>largest){
+                sLargest = largest;
+                largest = arr[i];
+            }
+            else if(arr[i]>sLargest && arr[i]!=largest){
+                sLargest = arr[i];
+            }
+        }
+
+        console.log(`Second largest element in the array is ${sLargest}`);
+
+        
+    </script>
+</body>
+</html>

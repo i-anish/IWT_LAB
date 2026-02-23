@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Factorial of a number</h3>
+    <script>
+        function fac(a){
+            if (a==0 || a==1)
+                return 1;
+            return a*fac(a-1);
+        }
+        let a = prompt('Enter a number: ');
+
+        document.write(
+            "Factorial of ",a," is ", fac(a), '.'
+        );
+    </script>
+</body>
+</html>
