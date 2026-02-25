@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let num = parseInt(prompt('Enter a number: '));
+
+        function checkArmstrong(){
+            let temp = num,temp2 = num, len = 0;
+            while(temp!=0){
+                len++;
+                temp = Math.floor(temp/10);
+            }
+
+            let arm = 0;
+
+            while(temp2!=0){
+
+                arm += Math.pow(temp2%10,len);
+                temp2 = Math.floor(temp2/10);
+            }
+
+            if(arm===num){
+                console.log(`${num} is armstrong!`);
+            }
+            else{
+                console.log(`${num} is  not armstrong!`);
+            }
+        }
+
+        checkArmstrong(num);
+    </script>
+</body>
+</html>

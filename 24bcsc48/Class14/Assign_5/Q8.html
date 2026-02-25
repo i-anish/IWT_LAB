@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        let a = parseInt(prompt('Enter a number: '))
+
+        function checkPrime(a){
+            let isPrime = true;
+            for(let i=2;i<Math.sqrt(a);i++){
+                if(a%i==0){
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if(isPrime===true){
+                console.log(`${a} is prime!`)
+            }
+            else{
+                console.log(`${a} is not prime!`)
+            }
+        }
+
+        checkPrime(a);
+    </script>
+</body>
+</html>
