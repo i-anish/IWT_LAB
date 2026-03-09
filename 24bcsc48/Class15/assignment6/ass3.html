@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button class="red">Red</button>
+    <button class="green">Green</button>
+    <button class="blue">Blue</button>
+
+    <div class="box" style="width: 100px; height: 200px; margin: 10px;"></div>
+
+    <script>
+        document.querySelector('.red').addEventListener('click', () => {
+            let conf = confirm('Really?');
+            if (conf) {
+                document.querySelector('.box').style.backgroundColor = 'red';
+            }
+            else{
+                 document.querySelector('.box').style.backgroundColor = 'white';
+            }
+        });
+        document.querySelector('.green').addEventListener('click', () => {
+            let conf = confirm('Really?');
+            if (conf) {
+                document.querySelector('.box').style.backgroundColor = 'green';
+            }
+            else{
+                 document.querySelector('.box').style.backgroundColor = 'white';
+            }
+        });
+        document.querySelector('.blue').addEventListener('click', () => {
+            let conf = confirm('Really?');
+            if (conf) {
+                document.querySelector('.box').style.backgroundColor = 'blue';
+            }
+            else{
+                 document.querySelector('.box').style.backgroundColor = 'white';
+            }
+        });
+    </script>
+</body>
+</html>

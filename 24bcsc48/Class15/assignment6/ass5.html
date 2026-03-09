@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Question 5</title>
+    </head>
+    <body>
+        <h2>Prime Check</h2>
+        <input type="number" id="inputnum" placeholder="Enter any number">
+        <button id="forcheck">Check Prime</button>
+    </body>
+    <script language="javascript">
+        const inputnum = document.getElementById("inputnum");
+        const forcheck = document.getElementById("forcheck");
+        function checkprime() {
+            let c = 0; 
+            const num = parseInt(inputnum.value);
+            for (let i = 1; i <= num; i++) {
+                if (num % i === 0) {
+                    c++;
+                }
+            }
+            if (c === 2) {
+                alert("Your Number is Prime Yayyyyy !!!");
+            } else {
+                alert("Your Number is not Prime :)");
+            }
+        }
+        forcheck.addEventListener("click", checkprime);
+    </script>
+</html>
