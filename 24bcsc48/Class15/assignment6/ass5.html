@@ -12,13 +12,21 @@
         const forcheck = document.getElementById("forcheck");
         function checkprime() {
             let c = 0; 
-            const num = parseInt(inputnum.value);
-            for (let i = 1; i <= num; i++) {
+
+            if (inputnum.value === "") {
+                alert("Please enter a number");
+                return;
+            }
+            const num = (inputnum.value);
+
+            let isPrime = true;
+            for (let i=2; i < Math.sqrt(num); i++) {
                 if (num % i === 0) {
-                    c++;
+                    isPrime = false;
+                    break;
                 }
             }
-            if (c === 2) {
+            if (isPrime && num > 1) {
                 alert("Your Number is Prime Yayyyyy !!!");
             } else {
                 alert("Your Number is not Prime :)");

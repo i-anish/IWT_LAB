@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter Card</title>
+    <style>
+        /* Base Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Background setup to center the card */
+        body {
+            background-color: #eef2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        /* The Card Container */
+        .converter-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .converter-card h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 22px;
+            color: #1a1a1a;
+        }
+
+        /* Input Grouping */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Aligning the number input and currency dropdown side-by-side */
+        .input-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .input-row input[type="number"] {
+            flex: 1; /* Takes up remaining space */
+            padding: 12px 15px;
+            font-size: 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .input-row select {
+            width: 100px; /* Fixed width for the currency dropdown */
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #f9fafb;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s ease;
+        }
+
+        /* Focus states for accessibility and UI */
+        .input-row input[type="number"]:focus,
+        .input-row select:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        /* Swap Icon Styling */
+        .swap-icon-container {
+            display: flex;
+            justify-content: center;
+            margin: -10px 0 10px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .swap-icon {
+            background-color: #3b82f6;
+            color: white;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .swap-icon:hover {
+            background-color: #2563eb;
+            transform: scale(1.05);
+        }
+
+        /* The Convert Button */
+        .convert-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #10b981;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+
+        .convert-btn:hover {
+            background-color: #059669;
+        }
+
+        /* Readonly input styling to indicate it's an output field */
+        input[readonly] {
+            background-color: #f3f4f6;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="converter-card">
+        <h2>Currency Converter</h2>
+
+        <div class="input-group">
+            <label for="amount-from">Amount</label>
+            <div class="input-row">
+                <input type="number" id="amount-from" placeholder="0.00" value="100">
+                <select id="currency-from">
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                    <option value="INR">INR</option>
+                    <option value="AUD">AUD</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="input-group">
+            <label for="amount-to">Converted Amount</label>
+            <div class="input-row">
+                <input type="number" id="amount-to" placeholder="0.00" readonly>
+                <select id="currency-to">
+                    <option value="EUR" selected>EUR</option>
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                    <option value="INR">INR</option>
+                    <option value="AUD">AUD</option>
+                </select>
+            </div>
+        </div>
+
+        <button class="convert-btn">Convert</button>
+    </div>
+
+    <script>
+        const conversionRates = {
+            USD: { EUR: 0.86, GBP: 0.74, INR: 91.93, AUD: 1.41 },
+            EUR: { USD: 1.16, GBP: 0.86, INR: 106.96, AUD: 1.64 },
+            GBP: { USD: 1.35, EUR: 1.16, INR: 123.68, AUD: 1.89 },
+            INR: { USD: 0.0109, EUR: 0.0093, GBP: 0.0081, AUD: 0.0153 },
+            AUD: { USD: 0.71, EUR: 0.61, GBP: 0.53, INR: 65.42 }
+};
+
+        const amountFrom = document.getElementById('amount-from');
+        const currencyFrom = document.getElementById('currency-from');
+        const currencyTo = document.getElementById('currency-to');
+        const amountTo = document.getElementById('amount-to');
+
+        document.querySelector('.convert-btn').addEventListener('click', () => {
+            const fromCurrency = currencyFrom.value;
+            const toCurrency = currencyTo.value;
+            const amount = parseFloat(amountFrom.value);
+
+            if (isNaN(amount) || amount < 0) {
+                alert('Please enter a valid amount greater than zero.');
+                return;
+            }
+
+            if (fromCurrency === toCurrency) {
+                alert('Please select different currencies for conversion.');
+                return;
+            }
+
+            const rate = conversionRates[fromCurrency][toCurrency];
+            const convertedAmount = (amount * rate).toFixed(2);
+            amountTo.value = convertedAmount;
+        });
+    </script>
+</body>
+</html>
