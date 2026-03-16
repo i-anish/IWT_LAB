@@ -32,6 +32,8 @@ body{
     border-radius: 5px;
     border: 1px solid;
     outline: none;
+    font-weight: bold;
+    font-size: 25px;
 }
 
 .buttons{
@@ -57,4 +59,5 @@ body{
     border: none;
     background-color: aliceblue;
     margin: 3px;
+    font-size: 16px;
 }
