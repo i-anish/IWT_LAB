@@ -13,16 +13,13 @@
 
         let set = new Set();
 
-        let newArr = []
-
         arr.forEach(element => {
             if (!set.has(element)){
-                newArr.push(element);
                 set.add(element);
             }
         });
 
-        console.log(newArr)
+        console.log(set)
         
     </script>
 </body>
